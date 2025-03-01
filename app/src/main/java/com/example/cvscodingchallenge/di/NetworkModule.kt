@@ -14,7 +14,7 @@ import javax.inject.Singleton
 object NetworkModule {
     @Provides
     fun provideBaseUrl(): String {
-        return "https://api.flickr.com/services"
+        return "https://www.flickr.com/services/feeds/photos_public.gne"
     }
 
     @Provides

@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("feeds/photos_public.gne?format=json&nojsoncallback=1")
+    @GET("?format=json&nojsoncallback=1")
     fun getPhotos(
         @Query("tags")
         tag: String
