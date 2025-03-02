@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -84,6 +85,9 @@ dependencies {
 
     // image coil
     implementation(libs.coil.compose)
+
+    // Jetpack Compose integration
+    implementation(libs.androidx.navigation.compose)
 }
 
 // Allow references to generated code
