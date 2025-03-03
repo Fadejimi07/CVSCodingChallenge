@@ -18,40 +18,42 @@ import coil3.compose.AsyncImage
 import com.example.cvscodingchallenge.model.PhotoItem
 
 @Composable
-fun PhotoDetailScreen(photoItem: PhotoItem) {
-    Card(
-        elevation = CardDefaults.cardElevation(6.dp),
-        border = BorderStroke(2.dp, color = Color.Black)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+fun PhotoDetailScreen(photoItem: PhotoItem?) {
+    photoItem?.let {
+        Card(
+            elevation = CardDefaults.cardElevation(6.dp),
+            border = BorderStroke(2.dp, color = Color.Black)
         ) {
-            AsyncImage(
-                model = photoItem.link,
-                contentDescription = photoItem.description,
-                modifier = Modifier.padding(10.dp)
-            )
-            Column {
-                Text(
-                    text = photoItem.title,
-                    style = MaterialTheme.typography.titleLarge
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                AsyncImage(
+                    model = photoItem.link,
+                    contentDescription = photoItem.description,
+                    modifier = Modifier.padding(10.dp)
                 )
+                Column {
+                    Text(
+                        text = photoItem.title,
+                        style = MaterialTheme.typography.titleLarge
+                    )
 
-                Text(
-                    text = photoItem.description,
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                    Text(
+                        text = photoItem.description,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
 
-                Text(
-                    text = photoItem.author,
-                    style = MaterialTheme.typography.labelLarge
-                )
+                    Text(
+                        text = photoItem.author,
+                        style = MaterialTheme.typography.labelLarge
+                    )
 
-                Text(
-                    text = photoItem.dateTaken,
-                    style = MaterialTheme.typography.bodySmall
-                )
+                    Text(
+                        text = photoItem.dateTaken,
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
             }
         }
     }

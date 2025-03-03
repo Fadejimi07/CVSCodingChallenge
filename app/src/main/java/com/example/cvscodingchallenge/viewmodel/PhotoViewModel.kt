@@ -18,9 +18,16 @@ class PhotoViewModel @Inject constructor(private val photoRepository: PhotoRepos
     var photoItems by mutableStateOf<List<PhotoItem>>(emptyList())
         private set
 
+    var selectedItem by mutableStateOf<PhotoItem?>(null)
+        private set
+
     fun getPhotos(tag: String) {
         viewModelScope.launch(Dispatchers.IO) {
             photoItems = photoRepository.getPhotoList(tag)
         }
+    }
+
+    fun setSelectedItem(item: PhotoItem) {
+        selectedItem = item
     }
 }
