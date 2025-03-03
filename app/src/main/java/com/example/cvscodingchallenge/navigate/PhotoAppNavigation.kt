@@ -1,5 +1,6 @@
 package com.example.cvscodingchallenge.navigate
 
+import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -11,13 +12,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.cvscodingchallenge.R
 import com.example.cvscodingchallenge.screens.HomeScreen
 import com.example.cvscodingchallenge.screens.PhotoDetailScreen
 import com.example.cvscodingchallenge.viewmodel.PhotoViewModel
 
-enum class PhotoAppScreen {
-    PhotoListScreen,
-    DetailsScreen
+enum class PhotoAppScreen(@StringRes val titleRes: Int) {
+    PhotoListScreen(titleRes = R.string.photo_list_title),
+    DetailsScreen(titleRes = R.string.photo_detail_title)
 }
 
 @Composable
